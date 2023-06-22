@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KTU Result Analyzer | Upload</title>
+    <!-- <link rel="stylesheet" href="login.css" /> -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&display=swap");
+      body {
+        height: 1000px;
+        background-image:linear-gradient(to top right,#57cfff,#42fdb5);
+        background-repeat: no-repeat;
+      }
+      .loginContainer {
+        background-color: white;
+        width: 400px;
+        height: 500px;
+        margin: auto;
+        margin-top: 100px;
+        text-align: center;
+        box-sizing: border-box;
+        border-radius: 10px;
+        box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.3);
+      }
+
+      .header {
+        font-family: "Nanum Myeongjo", serif;
+        margin-bottom: 40px;
+      }
+
+      input {
+        margin-bottom: 10px;
+        position: relative;
+        width: 250px;
+        padding: 10px;
+        /* border-radius: 3px; */
+        border: 1px solid grey;
+        border-radius: 3px;
+        outline: none;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+      }
+
+      #options {
+        height: 40px;
+        width: 270px;
+        color: white;
+        border-color: white;
+        background-color: rgb(4, 216, 216);
+      }
+      
+      #semester {
+        height: 40px;
+        width: 270px;
+        background-color: white;
+        border-color: aquamarine;
+        border-radius: 3px;
+        /* color:rgb(4, 216, 216); */
+      }
+
+      #submit:hover {
+        height: 40px;
+        width: 270px;
+        background-color: white;
+        border-color: aquamarine;
+        border-radius: 3px;
+        color:black;
+        /* color:rgb(4, 216, 216); */
+      }
+
+      #submit {
+        height: 40px;
+        width: 270px;
+        color: white;
+        border-color: white;
+        background-color: rgb(4, 216, 216);
+      }
+
+      footer {
+        color: rgb(198, 196, 196);
+        font-size: smaller;
+        position: relative;
+        top: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="loginContainer">
+        <br />
+        <h2 class="header">KTU Result Analyser</h2>
+        <!-- <form method="POST" enctype="multipart/form-data" onsubmit="downloadhtml()"> -->
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+        <div class="uploadarea">
+          <span>Upload File</span><br />
+          <input type="file" name="upload" id="upload" required="required" />
+          <br />
+          <select name="semester" id="semester" required>
+            <option id="options" value="select">-- Select --</option>
+            <option id="options" value="S1">Semester 1</option>
+            <option id="options" value="S2">Semester 2</option>
+            <option id="options" value="S3">Semester 3</option>
+            <option id="options" value="S4">Semester 4</option>
+            <option id="options" value="S5">Semester 5</option>
+            <option id="options" value="S6">Semester 6</option>
+            <option id="options" value="S7">Semester 7</option>
+            <option id="options" value="S8">Semester 8</option>
+          </select>
+          <br>
+          <br>
+          <button id="submit" >Generate Result</button>
+        </div>
+    </form>
+        <footer>&copy;Team Blah Blah</footer>
+      </div>
+    </div>
+    <!-- <script>
+      function downloadhtml() {
+        window.open("download.html");
+      }
+    </script> -->
+  </body>
+  
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KTU Result Analyzer | Download</title>
+    <!-- <link rel="stylesheet" href="login.css" /> -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&display=swap");
+      body {
+        height: 1000px;
+        background-image:linear-gradient(to top right,#57cfff,#42fdb5);
+        background-repeat: no-repeat;
+      }
+      .loginContainer {
+        background-color: white;
+        width: 400px;
+        height: 500px;
+        margin: auto;
+        margin-top: 100px;
+        text-align: center;
+        box-sizing: border-box;
+        border-radius: 10px;
+        box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.3);
+      }
+
+      .header {
+        font-family: "Nanum Myeongjo", serif;
+        margin-bottom: 40px;
+      }
+
+      input {
+        margin-bottom: 10px;
+        position: relative;
+        width: 250px;
+        padding: 10px;
+        /* border-radius: 3px; */
+        border: 1px solid grey;
+        border-radius: 3px;
+        outline: none;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+      }
+
+      #submit {
+        height: 40px;
+        width: 270px;
+        background-color: white;
+        border-color: aquamarine;
+        border-radius: 3px;
+        /* color:rgb(4, 216, 216); */
+      }
+
+      #submit:hover {
+        height: 40px;
+        width: 270px;
+        color: white;
+        border-color: white;
+        background-color: rgb(4, 216, 216);
+      }
+
+      button{
+        height:40px;
+        width:275px;
+        background-color:#42fdb5;
+        border-color:white;
+        box-shadow: 2px 2px 5px rgb(113, 112, 112);;
+      }
+
+      footer {
+        color: rgb(198, 196, 196);
+        font-size: smaller;
+        position: relative;
+        top: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="loginContainer">
+        <br />
+        <h2 class="header">KTU Result Analyser</h2>
+        <!-- <form method="POST" enctype="multipart/form-data" action="result/"> -->
+        
+        <div class="uploadarea">
+          <span>File Analysis Completed</span><br />
+          <br /><br>
+          <form method="POST" action="{% url 'resultexcel' %}">
+            {% csrf_token %}
+            <button type="submit" id="std_grad" name="resultexcel">Download as Excel</button>
+          </form>
+          <br><br>
+          <form method="POST" action="{% url 'resultpdf' %}">
+            {% csrf_token %}
+            <button type="submit" id="sub_anal" name="resultpdf">Download as PDF</button>
+          </form>
+          <br><br>
+        </div>
+    
+        <footer>&copy;Team Blah Blah</footer>
+      </div>
+    </div>
+    <!-- <script>
+      function downloadExcel() {
+      window.location.href = '/upload/upload.html/download.html/resultexcel/';
+    }
+
+    function downloadPDF() {
+      window.location.href = '/upload/upload.html/download.html/resultpdf/';
+    }
+  </script> -->
+  </body>
+</html>
+
+
+

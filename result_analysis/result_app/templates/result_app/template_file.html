@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KTU Result Analyzer</title>
+    <link rel="stylesheet" href="login.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&display=swap");
+      body {
+        height: 1000px;
+         background-image:linear-gradient(to top right,#57cfff,#42fdb5); 
+        /* background-image: url(assets\bg.jpg); */
+        background-repeat: no-repeat;
+      }
+
+      .loginContainer {
+        background-color: white;
+        width: 400px;
+        height: 500px;
+        margin: auto;
+        margin-top: 100px;
+        text-align: center;
+        box-sizing: border-box;
+        border-radius: 10px;
+        box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.3);
+      }
+
+      .header {
+        font-family: "Nanum Myeongjo", serif;
+        margin-bottom: 40px;
+      }
+
+      input {
+        margin-bottom: 10px;
+        position: relative;
+        width: 250px;
+        padding: 10px;
+        /* border-radius: 3px; */
+        border: 1px solid grey;
+        border-radius: 3px;
+        outline: none;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+      }
+
+      #submit {
+        height: 40px;
+        width: 270px;
+        background-color: white;
+        border-color: aquamarine;
+        border-radius: 3px;
+        /* color:rgb(4, 216, 216); */
+      }
+
+      #submit:hover {
+        height: 40px;
+        width: 270px;
+        color: white;
+        border-color: white;
+        background-color: rgb(4, 216, 216);
+      }
+
+      .options {
+        font-size: 15px;
+      }
+
+      footer {
+        color: rgb(198, 196, 196);
+        font-size: smaller;
+        position: relative;
+        top: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="loginContainer">
+        <br />
+        <h2 class="header">KTU Result Analyser</h2>
+        <span>USERNAME</span><br />
+        <input type="text" name="username" id="uname" required="required" />
+        <br />
+        <span>PASSWORD</span><br />
+        <input type="password" name="password" id="pwd" required="required" />
+        <br />
+        <button id="submit" onclick="checkdetails()">SUBMIT</button>
+        <br /><br />
+        <div id="moreoptions" class="options">
+          {% load static %}
+          <p id="options">Or Sign In Using</p>
+          <a href="https://ktu.edu.in"
+            ><img src="{% static 'result_app/images/facebook.png' %}" height="20px" width="20px" /></a
+          >&nbsp;&nbsp;
+          <a href="https://ktu.edu.in"
+            ><img src="{% static 'result_app/images/search.png' %}" height="20px" width="20px" /></a
+          >&nbsp;&nbsp;
+          <a href="https://ktu.edu.in"
+            ><img src="{% static 'result_app/images/twitter.png' %}" height="20px" width="20px"
+          /></a>
+        </div>
+        <footer>&copy;Team Blah Blah</footer>
+      </div>
+    </div>
+    <script>
+      function checkdetails() {
+        const username = document.getElementById("uname").value;
+        const password = document.getElementById("pwd").value;
+        if (username == "gecbstaff" && password == "password")
+          open("upload.html");
+        else alert("Invalid username or password");
+      }
+    </script>
+  </body>
+</html>
